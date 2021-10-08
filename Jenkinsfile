@@ -48,8 +48,7 @@ pipeline {
             echo "Job execution complete."
         }
 		success{
-			sh "ls -all"
-            archiveArtifacts artifacts : 'target/springbootrestapiexample-${env.BUILD_ID}.jar'
+            archiveArtifacts artifacts : 'target/springbootrestapiexample-*.jar'
         }
         unsuccessful{
             echo "Job execution status is failed, please check error logs"
