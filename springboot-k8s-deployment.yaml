@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ArtifactId
+  labels:
+    app: ArtifactId
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: ArtifactId
+  template:
+    metadata:
+      labels:
+        app: ArtifactId
+        version: APPVERSION
+    spec:
+      imagePullSecrets:
+      - name: docker-reg
+      containers:
+      - name: ArtifactId
+        image: 192.168.1.168:5000/ArtifactId:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+
+---
+#service
+apiVersion: v1
+kind: Service
+metadata:
+  name: ArtifactId
+spec:
+  type: ClusterIP
+  selector:
+    app: ArtifactId
+  ports:
+  - name: ArtifactId
+    protocol: TCP
+    port: 8080
+    targetPort: 8080

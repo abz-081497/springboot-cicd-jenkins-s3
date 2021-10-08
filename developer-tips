@@ -1,0 +1,8 @@
+This is a tips file that is used for record important notes:
+------------------------------------------------------------
+
+How to build the file:
+    mvn clean install
+
+How to commit a new version:
+    mvn release:prepare
