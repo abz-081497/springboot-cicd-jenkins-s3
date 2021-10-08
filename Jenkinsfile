@@ -33,7 +33,7 @@ pipeline {
 	  }
 		stage("Push to S3") {
 			steps {
-				test("TEST")
+				test("Cãtãlin")
 				uploadFilesToS3()
 				
 
@@ -48,6 +48,7 @@ pipeline {
             echo "Job execution complete."
         }
 		success{
+			sh "ls -all"
             archiveArtifacts artifacts : 'target/springbootrestapiexample-${env.BUILD_ID}.jar'
         }
         unsuccessful{
