@@ -34,7 +34,9 @@ pipeline {
 		stage("Push to S3") {
 			steps {
 				
-				vars.uploadFilesToS3.pushToS3()
+				new var.uploadFilesToS3.call()
+				new  var.test.call("TEST")
+				
 
 			}
 		}
