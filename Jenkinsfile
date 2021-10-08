@@ -32,14 +32,16 @@ pipeline {
 	  }
 		stage("Push to S3") {
 			steps {
-				
+				def map = [regiom: "us-east-1", s3Bucket: "test-bucket-222", s3Path: "/"]
 				pushToS3(map)
 
 			}
 		}
 
 	 
-	 post{
+	
+ }
+  post{
         always{
             echo "Job execution complete."
         }
@@ -50,6 +52,5 @@ pipeline {
             echo "Job execution status is failed, please check error logs"
         }
 	 }
- }
   
 }
