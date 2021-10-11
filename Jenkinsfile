@@ -33,7 +33,7 @@ pipeline {
 	  }
 		stage("Push to S3") {
 			steps {
-				test("Abigael")
+				test("Cãtãlin")
 				uploadFilesToS3()
 				
 
