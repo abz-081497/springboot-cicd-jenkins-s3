@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                     echo "Build image with tag: ${env.BUILD_ID}"
-                    myapp = docker.build("catalinpoc/ledger-service:${env.BUILD_ID}", "--build-arg VERSION='${env.BUILD_ID}' .")
+                    myapp = docker.build("abigael081497/ledger-service:${env.BUILD_ID}", "--build-arg VERSION='${env.BUILD_ID}' .")
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline {
 	  }
 		stage("Push to S3") {
 			steps {
-				test("Cãtãlin")
+				test("Valenzuela")
 				uploadFilesToS3()
 				
 
